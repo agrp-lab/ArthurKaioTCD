@@ -73,6 +73,10 @@ topo('Lista de tarefas', 'index');
         <div class="message">Tarefa excluída.</div>
     <?php endif; ?>
 
+    <?php if (isset($_GET['editada'])): ?>
+        <div class="message">Tarefa atualizada com sucesso.</div>
+    <?php endif; ?>
+
     <div class="dashboard-grid">
         <aside class="control-panel">
             <div class="panel-title">
@@ -148,7 +152,10 @@ topo('Lista de tarefas', 'index');
                                 </span>
                             </div>
 
-                            <a class="delete-link" href="exclusao.php?id=<?= (int) $tarefa->id ?>" title="Excluir">×</a>
+                            <div class="task-actions">
+                                <a class="edit-link" href="editar.php?id=<?= (int) $tarefa->id ?>" title="Editar tarefa" aria-label="Editar tarefa">Editar</a>
+                                <a class="delete-link" href="exclusao.php?id=<?= (int) $tarefa->id ?>" title="Excluir" aria-label="Excluir tarefa">×</a>
+                            </div>
                         </article>
                     <?php endforeach; ?>
                 </div>
